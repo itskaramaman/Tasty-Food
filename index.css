@@ -1,3 +1,43 @@
-#inception-heading {
-    color: aqua;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.logo {
+  height: 100px;
+}
+
+.nav-items > ul {
+  display: flex;
+}
+
+.nav-items > ul > li {
+  padding: 20px;
+  list-style-type: none;
+}
+
+.res-card {
+  width: 300px;
+  background-color: #f0f0f0;
+  padding: 5px;
+}
+
+.res-card:hover {
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.search {
+  padding: 10px;
+}
+
+.res-img {
+  width: 100%;
+}
+
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
