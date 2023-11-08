@@ -41,3 +41,8 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+.filter-btn {
+  margin: 10px;
+  padding: 10px;
+}
