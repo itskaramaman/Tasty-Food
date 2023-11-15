@@ -1,5 +1,5 @@
 import { LOGO } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -7,18 +7,13 @@ const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const isOnline = useOnlineStatus();
 
-  useEffect(() => {
-    console.log("useEffect Called");
-  }, [btnName]);
-
-  console.log("Header rendered");
   return (
-    <div className="header">
+    <div className="flex justify-between bg-gradient-to-b from-orange-100 to-orange-400 shadow-lg">
       <div className="logo-container">
-        <img className="logo" src={LOGO} />
+        <img className="w-36" src={LOGO} />
       </div>
-      <div className="nav-items">
-        <ul>
+      <div className="flex items-center">
+        <ul className="flex gap-5 mr-5">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -32,9 +27,8 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li>Cart</li>
-          <li>{isOnline ? "🟢" : "🔴"}</li>
+          <li>Online Status:{isOnline ? "🟢" : "🔴"}</li>
           <button
-            className="btn-login"
             onClick={() => {
               btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
             }}
