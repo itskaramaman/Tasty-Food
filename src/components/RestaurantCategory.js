@@ -1,18 +1,21 @@
 import RestaurantCategoryItem from "./RestaurantCategoryItem";
 
 const RestaurantCategory = ({
+  index,
   category,
-  setShowCategoryItems,
-  showCategoryItems,
+  setShowCategoryIndex,
+  showCategoryIndex,
 }) => {
   const { itemCards } = category.card?.card;
   const { title } = category.card?.card;
 
   const handleCategoryClick = () => {
-    if (showCategoryItems === title) {
-      setShowCategoryItems(null);
-    } else if (showCategoryItems === null) {
-      setShowCategoryItems(title);
+    if (showCategoryIndex === null) {
+      setShowCategoryIndex(index);
+    } else if (showCategoryIndex === index) {
+      setShowCategoryIndex(null);
+    } else {
+      setShowCategoryIndex(index);
     }
   };
 
@@ -25,9 +28,9 @@ const RestaurantCategory = ({
         <h1 className="font-semibold text-lg">
           {title + " (" + itemCards.length + ")"}
         </h1>
-        <p>{showCategoryItems === title ? "⬇️" : "➡️"}</p>
+        <p>{showCategoryIndex === index ? "⬇️" : "➡️"}</p>
       </div>
-      {showCategoryItems === title && (
+      {showCategoryIndex === index && (
         <ul>
           {itemCards.map((item) => (
             <RestaurantCategoryItem key={item.info?.id} item={item} />

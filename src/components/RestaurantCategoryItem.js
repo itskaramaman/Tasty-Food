@@ -1,7 +1,10 @@
 import { MENU_ITEM_IMAGE_CDN } from "../utils/constants";
+import { useState } from "react";
+import Button from "./styledComponents/Button";
 
 const RestaurantCategoryItem = ({ item }) => {
-  //   console.log(item);
+  const [itemCount, setItemCount] = useState(0);
+
   return (
     <div className="flex justify-between gap-5 my-5 py-5 border-b-2">
       <div className="w-2/3">
@@ -19,11 +22,16 @@ const RestaurantCategoryItem = ({ item }) => {
           {item.card?.info?.description}
         </p>
       </div>
-      <div className="w-1/3">
+      <div className="w-1/3 flex gap-2">
         <img
           className="h-32 w-44 mx-auto"
           src={MENU_ITEM_IMAGE_CDN + item.card?.info?.imageId}
         />
+        <div className="flex items-center gap-1">
+          <Button>-</Button>
+          {itemCount}
+          <Button>+</Button>
+        </div>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
-  const [showCategoryItems, setShowCategoryItems] = useState(null);
+  const [showCategoryIndex, setShowCategoryIndex] = useState(0);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -23,16 +23,6 @@ const RestaurantMenu = () => {
     totalRatingsString,
   } = resInfo?.cards[0]?.card?.card?.info;
 
-  console.log(
-    name,
-    cuisines,
-    costForTwoMessage,
-    areaName,
-    city,
-    isOpen,
-    totalRatingsString
-  );
-
   const categories =
     resInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
@@ -42,7 +32,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="mx-20 p-20">
-      <div className="flex justify-between border-b-2">
+      <div className="flex justify-between border-b-2 pb-5">
         <div>
           <h1 className="text-3xl font-semibold">{name}</h1>
           <h3 className="italic text-xs text-gray-700">
@@ -66,12 +56,13 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <RestaurantCategory
           key={category.card?.card?.title}
+          index={index}
           category={category}
-          setShowCategoryItems={setShowCategoryItems}
-          showCategoryItems={showCategoryItems}
+          setShowCategoryIndex={setShowCategoryIndex}
+          showCategoryIndex={showCategoryIndex}
         />
       ))}
     </div>
