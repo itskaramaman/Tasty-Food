@@ -1,6 +1,6 @@
 import { MENU_ITEM_IMAGE_CDN } from "../utils/constants";
 import { useState } from "react";
-import Button from "./styledComponents/Button";
+import IncrementDecrement from "./styledComponents/IncrementDecrement";
 
 const RestaurantCategoryItem = ({ item }) => {
   const [itemCount, setItemCount] = useState(0);
@@ -28,9 +28,10 @@ const RestaurantCategoryItem = ({ item }) => {
           src={MENU_ITEM_IMAGE_CDN + item.card?.info?.imageId}
         />
         <div className="flex items-center gap-1">
-          <Button>-</Button>
+          <IncrementDecrement />
+          {/* <Button>-</Button>
           {itemCount}
-          <Button>+</Button>
+          <Button>+</Button> */}
         </div>
       </div>
     </div>
