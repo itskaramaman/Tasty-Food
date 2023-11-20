@@ -1,6 +1,6 @@
 import RestaurantCard, { withDiscountInfo } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../utils/useRestaurantList";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -8,8 +8,13 @@ import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const { restaurantList, filteredRestaurant, setFilteredRestaurant } =
-    useRestaurantList();
+  const { restaurantList } = useRestaurantList();
+
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+  useEffect(() => {
+    setFilteredRestaurant(restaurantList);
+  }, [restaurantList]);
 
   const isOnline = useOnlineStatus();
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -22,10 +27,10 @@ const Body = () => {
     );
   }
 
-  return restaurantList?.length === 0 ? (
+  return filteredRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="body mb-5">
       <div className="filter p-5">
         <div className="search">
           <input

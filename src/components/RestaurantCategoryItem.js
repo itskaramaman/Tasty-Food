@@ -1,10 +1,32 @@
 import { MENU_ITEM_IMAGE_CDN } from "../utils/constants";
-import { useState } from "react";
 import IncrementDecrement from "./styledComponents/IncrementDecrement";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, removeItem } from "../utils/cartSlice";
 
-const RestaurantCategoryItem = ({ item }) => {
-  const [itemCount, setItemCount] = useState(0);
+const RestaurantCategoryItem = ({ item, count = 0 }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((store) => store.cart.items);
 
+  const handleAddItem = (count) => {
+    // dispatch an action
+    dispatch(addItem({ item, count }));
+  };
+
+  const handleRemoveItem = (count) => {
+    dispatch(removeItem({ item, count }));
+  };
+
+  // console.log(item);
+
+  const getCountFromCart = () => {
+    cartItems.map((cardItem) => {
+      if (cardItem.item.card.info.id === item.card?.info?.id) {
+        count = cardItem.count;
+      }
+    });
+  };
+
+  getCountFromCart();
   return (
     <div className="flex justify-between gap-5 my-5 py-5 border-b-2">
       <div className="w-2/3">
@@ -28,10 +50,11 @@ const RestaurantCategoryItem = ({ item }) => {
           src={MENU_ITEM_IMAGE_CDN + item.card?.info?.imageId}
         />
         <div className="flex items-center gap-1">
-          <IncrementDecrement />
-          {/* <Button>-</Button>
-          {itemCount}
-          <Button>+</Button> */}
+          <IncrementDecrement
+            handleAddItem={handleAddItem}
+            handleRemoveItem={handleRemoveItem}
+            count={count}
+          />
         </div>
       </div>
     </div>

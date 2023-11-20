@@ -1,9 +1,11 @@
 import { useState } from "react";
 
-const IncrementDecrement = () => {
-  const [count, setCount] = useState(0);
+const IncrementDecrement = ({ count: countGiven, handleAddItem }) => {
+  console.log(countGiven);
+  const [count, setCount] = useState(countGiven);
 
   const handleIncrement = () => {
+    handleAddItem(count + 1);
     setCount(count + 1);
   };
 
