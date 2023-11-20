@@ -21,7 +21,7 @@ const Cart = () => {
           Clear Cart
         </button>
       </div>
-      <div className="bg-slate-100 p-2">
+      <div className="bg-slate-100 p-2 shadow-xl">
         {cartItems.length === 0 ? (
           <p>Your 🛒 is empty</p>
         ) : (

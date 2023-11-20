@@ -1,5 +1,5 @@
 export const LOGO =
-  "https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png";
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGiUbMhaXl73QmffRRNIg3NhkMNuEL4ie6ag&usqp=CAU";
 
 export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
