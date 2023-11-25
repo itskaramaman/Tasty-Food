@@ -8,7 +8,6 @@ const About = () => {
       <h1>About</h1>
       <p>This is Namaste React webseries.</p>
       <small>{data.loggedInUser}</small>
-      <Popup />
     </div>
   );
 };
