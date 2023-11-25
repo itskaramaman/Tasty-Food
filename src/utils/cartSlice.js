@@ -18,8 +18,20 @@ const cartSlice = createSlice({
         state.items.push(action.payload);
       }
     },
-    removeItem: (state) => {
-      state.items.pop();
+    removeItem: (state, action) => {
+      let removeObj = false;
+      state.items.map((item) => {
+        if (item.item.card.info.id === action.payload.item.card.info.id) {
+          item.count > 1 ? (item.count = item.count - 1) : (removeObj = true);
+        }
+
+        if (removeObj === true) {
+          state.items = state.items.filter(
+            (item) =>
+              item.item.card.info.id !== action.payload.item.card.info.id
+          );
+        }
+      });
     },
     clearCart: (state) => {
       state.items.length = 0;

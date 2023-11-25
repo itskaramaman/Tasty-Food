@@ -1,10 +1,9 @@
 import RestaurantCard, { withDiscountInfo } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../utils/useRestaurantList";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -17,7 +16,6 @@ const Body = () => {
   }, [restaurantList]);
 
   const isOnline = useOnlineStatus();
-  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const RestaurantCardDiscounted = withDiscountInfo(RestaurantCard);
 
@@ -55,15 +53,6 @@ const Body = () => {
           >
             Search
           </button>
-          <input
-            type="text"
-            className="bg-gray-100 ml-12 p-1"
-            placeholder="Enter Username"
-            value={loggedInUser}
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
         </div>
       </div>
       <div className="flex flex-wrap gap-10 justify-center">

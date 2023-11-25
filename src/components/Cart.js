@@ -9,7 +9,12 @@ const Cart = () => {
     // dispatch the action
     dispatch(clearCart());
   };
-  console.log(cartItems);
+
+  let cartTotal = 0;
+  cartItems.map((item) => {
+    cartTotal = cartTotal + (item.count * item.item.card.info.price) / 1000;
+  });
+
   return (
     <div className="w-10/12 my-10 p-5 mx-auto">
       <div className="flex justify-between mb-2">
@@ -25,13 +30,21 @@ const Cart = () => {
         {cartItems.length === 0 ? (
           <p>Your 🛒 is empty</p>
         ) : (
-          cartItems.map((item) => (
-            <RestaurantCategoryItem
-              key={item.item.card.info.id}
-              item={item.item}
-              count={item.count}
-            />
-          ))
+          <div>
+            {cartItems.map((item) => (
+              <RestaurantCategoryItem
+                key={item.item.card.info.id}
+                item={item.item}
+                count={item.count}
+              />
+            ))}
+            <div className="pb-2 flex justify-end">
+              <p>
+                Your cart total is{" "}
+                <span className="font-semibold">₹{cartTotal}</span>
+              </p>
+            </div>
+          </div>
         )}
       </div>
     </div>
