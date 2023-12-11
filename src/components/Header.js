@@ -22,7 +22,7 @@ const Header = () => {
           <li>
             <Link to="/cart" className="text-2xl mr-5">
               🛒{" "}
-              <span className="absolute text-sm w-5 text-center rounded-full bg-blue-400">
+              <span className="absolute text-sm w-5 text-center rounded-full bg-blue-400 text-white font-medium">
                 {cartItems.length}
               </span>
             </Link>
