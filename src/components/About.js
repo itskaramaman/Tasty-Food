@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
-import Popup from "./Popup";
+
 const About = () => {
   const data = useContext(UserContext);
   return (

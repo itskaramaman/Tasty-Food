@@ -7,32 +7,50 @@ const RestaurantCard = (props) => {
     costForTwo,
     avgRatingString,
     cloudinaryImageId,
+    locality,
     sla,
   } = props.resData?.info;
   return (
-    <div className="p-4 w-60 bg-slate-100 rounded-md hover:bg-slate-200 hover:shadow-xl">
+    <div className="w-[203px] rounded-md hover:shadow-2xl">
       <img
         alt="card-log"
-        className="rounded-md h-60 bg-cover mx-auto"
+        className="rounded-2xl w-[203px] h-[135px] object-cover mx-auto"
         src={CDN_URL + cloudinaryImageId}
       />
-      <div className="h-14  overflow-hidden">
-        <h3 className="font-semibold text-lg py-auto">{name}</h3>
-      </div>
-      <div>
-        <h4 className="font-thin text-sm italic">
-          {cuisines?.join(", ")?.substring(0, 30) + "..."}
-        </h4>
-      </div>
-      <small>
-        <span className="font-bold">Cost for Two: </span>
-        <span className="text-green-600">{costForTwo}</span>
-      </small>
-      <div className="flex justify-between">
-        <small>⭐{avgRatingString} stars</small>
-        <br />
-        <small className="text-blue-400">{sla?.deliveryTime} min</small>
-      </div>
+      <section className="p-2">
+        <h3 className="font-semibold text-lg line-clamp-1">{name}</h3>
+        <div>
+          <h4 className="flex items-center gap-1 text-sm text-gray-500">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.25"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-navigation"
+            >
+              <polygon points="3 11 22 2 13 21 11 13 3 11" />
+            </svg>
+            {locality}
+          </h4>
+          <h4 className="font-thin line-clamp-1 text-sm text-gray-500">
+            {cuisines?.join(", ")}
+          </h4>
+        </div>
+        <small>
+          <span className="font-bold">Cost for Two: </span>
+          <span className="text-green-600">{costForTwo}</span>
+        </small>
+        <div className="flex justify-between">
+          <small>⭐{avgRatingString} stars</small>
+          <br />
+          <small className="text-blue-400">{sla?.deliveryTime} min</small>
+        </div>
+      </section>
     </div>
   );
 };

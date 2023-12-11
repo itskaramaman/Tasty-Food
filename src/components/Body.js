@@ -8,6 +8,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const { restaurantList } = useRestaurantList();
+  console.log(restaurantList);
 
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
@@ -28,8 +29,8 @@ const Body = () => {
   return filteredRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body mb-5">
-      <div className="filter p-5">
+    <div className="absolute top-5 mb-5">
+      <div className="p-5">
         <div className="search">
           <input
             type="text"
@@ -55,13 +56,12 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap gap-10 justify-center">
+      <div className="w-10/12 mx-auto flex flex-wrap gap-12 justify-center">
         {filteredRestaurant.map((restaurant) => (
           <Link
             to={"/restaurants/" + restaurant.info.id}
             key={restaurant.info.id}
           >
-            {/* if restaurant has discount, add discount lable to it */}
             {restaurant.info.aggregatedDiscountInfoV3 ? (
               <RestaurantCardDiscounted resData={restaurant} />
             ) : (
