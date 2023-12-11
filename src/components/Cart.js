@@ -16,7 +16,7 @@ const Cart = () => {
   });
 
   return (
-    <div className="w-10/12 absolute top-10 my-10 p-5">
+    <div className="w-10/12 absolute top-20 left-0 right-0 mx-auto p-5">
       <div className="flex justify-between mb-2">
         <h1 className="text-2xl font-semibold">Your Cart</h1>
         <button
