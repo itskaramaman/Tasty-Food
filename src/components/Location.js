@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import locationBG from "../images/location-bg.jpg";
 import { LOCATION_SEARCH_URL } from "../utils/constants";
 import LocationResultItem from "./LocationResultItem";
+import useLocationResults from "../utils/useLocationResults";
 
 const Location = () => {
   const messages = ["Hungry?", "Friday Night🍻", "No mood to cook🍕"];
   const [title, setTitle] = useState("Hungary?");
   const [input, setInput] = useState("");
-  const [results, setResults] = useState([]);
+  const results = useLocationResults(input);
 
   useEffect(() => {
     let index = 0;
@@ -19,16 +20,16 @@ const Location = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const fetchLocations = async () => {
-    const response = await fetch(LOCATION_SEARCH_URL + input);
-    const data = await response.json();
-    setResults(data?.data);
-  };
+  // const fetchLocations = async () => {
+  //   const response = await fetch(LOCATION_SEARCH_URL + input);
+  //   const data = await response.json();
+  //   setResults(data?.data);
+  // };
 
-  useEffect(() => {
-    const timeOut = setTimeout(() => fetchLocations(), 300);
-    return () => clearTimeout(timeOut);
-  }, [input]);
+  // useEffect(() => {
+  //   const timeOut = setTimeout(() => fetchLocations(), 300);
+  //   return () => clearTimeout(timeOut);
+  // }, [input]);
 
   return (
     <div className="absolute w-full h-screen grid grid-flow-col grid-cols-3">
