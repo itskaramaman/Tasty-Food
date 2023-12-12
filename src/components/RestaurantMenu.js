@@ -31,7 +31,7 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="absolute top-5 mx-20 p-20">
+    <div className="absolute top-5 w-10/12 left-0 right-0 mx-auto p-20">
       <div className="flex justify-between border-b-2 pb-5">
         <div>
           <h1 className="text-3xl font-semibold">{name}</h1>

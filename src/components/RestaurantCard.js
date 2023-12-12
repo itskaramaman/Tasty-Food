@@ -28,10 +28,10 @@ const RestaurantCard = (props) => {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="1.25"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-navigation"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-navigation"
             >
               <polygon points="3 11 22 2 13 21 11 13 3 11" />
             </svg>

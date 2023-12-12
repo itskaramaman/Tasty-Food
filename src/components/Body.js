@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../utils/useRestaurantList";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import Location from "./Location";
+import { useSelector } from "react-redux";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const { restaurantList } = useRestaurantList();
-  console.log(restaurantList);
-
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const address = useSelector((store) => store.app.address);
 
   useEffect(() => {
     setFilteredRestaurant(restaurantList);
@@ -26,7 +27,9 @@ const Body = () => {
     );
   }
 
-  return filteredRestaurant.length === 0 ? (
+  if (address === null) return <Location />;
+
+  return !filteredRestaurant || filteredRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="absolute top-5 mb-5">

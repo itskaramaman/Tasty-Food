@@ -3,14 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const appSlice = createSlice({
   name: "app",
   initialState: {
-    location: null,
+    address: null,
   },
   reducers: {
-    setLocation: (state, action) => {
-      state.location = action.payload.location;
+    setAddress: (state, action) => {
+      state.address = action.payload;
     },
   },
 });
 
-export const { setLocation } = appSlice.actions;
+export const { setAddress } = appSlice.actions;
 export default appSlice.reducer;
