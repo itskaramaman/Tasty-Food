@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
 import Location from "./components/Location";
+import Main from "./components/Main";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./components/About"));
@@ -32,7 +33,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Body />,
+        element: <Main />,
       },
       {
         path: "/about",

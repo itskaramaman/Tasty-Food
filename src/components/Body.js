@@ -32,7 +32,7 @@ const Body = () => {
   return !filteredRestaurant || filteredRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="absolute top-5 mb-5">
+    <div className="absolute top-5 mb-5 z-10">
       <div className="p-5">
         <div className="search">
           <input
