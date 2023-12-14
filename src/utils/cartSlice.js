@@ -26,13 +26,10 @@ const cartSlice = createSlice({
         if (item.item.card.info.id === action.payload.item?.card?.info?.id) {
           item.count > 1 ? (item.count = item.count - 1) : (removeObj = true);
         }
-
-        if (removeObj === true) {
-          state.items = state.items.filter(
-            (item) =>
-              item.item.card.info.id !== action.payload.item.card.info.id
-          );
-        }
+        if (!removeObj) return;
+        state.items = state.items.filter(
+          (item) => item.item.card.info.id !== action.payload.item.card.info.id
+        );
       });
     },
     clearCart: (state) => {

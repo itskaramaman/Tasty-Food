@@ -25,7 +25,7 @@ const RestaurantCategoryItem = ({ item, count = 0 }) => {
 
         <h2 className="font-semibold my-1">{item.card?.info?.name}</h2>
         <p className="text-sm text-gray-700 my-1">
-          ₹{item.card?.info?.price / 100}
+          ₹{item.card?.info?.defaultPrice / 100}
         </p>
         <p className="text-sm text-gray-500 italic">
           {item.card?.info?.description}

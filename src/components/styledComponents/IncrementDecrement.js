@@ -8,13 +8,13 @@ const IncrementDecrement = ({ item, count: countGiven }) => {
 
   const handleIncrement = () => {
     dispatch(addItem({ item, count: count + 1 }));
-    setCount(count + 1);
+    setCount((prev) => prev + 1);
   };
 
   const handleDecrement = () => {
     if (count <= 0) return;
-    dispatch(removeItem({ item, count: count + 1 }));
-    setCount(count - 1);
+    dispatch(removeItem({ item, count: count - 1 }));
+    setCount((prev) => prev - 1);
   };
   return (
     <div className="flex items-center justify-center">
