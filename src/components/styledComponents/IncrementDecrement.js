@@ -1,20 +1,19 @@
 import { useState } from "react";
+import { addItem, removeItem } from "../../utils/cartSlice";
+import { useDispatch } from "react-redux";
 
-const IncrementDecrement = ({
-  count: countGiven,
-  handleAddItem,
-  handleRemoveItem,
-}) => {
+const IncrementDecrement = ({ item, count: countGiven }) => {
   const [count, setCount] = useState(countGiven);
+  const dispatch = useDispatch();
 
   const handleIncrement = () => {
-    handleAddItem(count + 1);
+    dispatch(addItem({ item, count: count + 1 }));
     setCount(count + 1);
   };
 
   const handleDecrement = () => {
     if (count <= 0) return;
-    handleRemoveItem(count);
+    dispatch(removeItem({ item, count: count + 1 }));
     setCount(count - 1);
   };
   return (

@@ -3,6 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
+    restaurantName: null,
+    restaurantAreaName: null,
     items: [],
   },
   reducers: {
@@ -21,7 +23,7 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       let removeObj = false;
       state.items.map((item) => {
-        if (item.item.card.info.id === action.payload.item.card.info.id) {
+        if (item.item.card.info.id === action.payload.item?.card?.info?.id) {
           item.count > 1 ? (item.count = item.count - 1) : (removeObj = true);
         }
 
@@ -36,8 +38,13 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items.length = 0;
     },
+    addResturantDetails: (state, action) => {
+      state.restaurantName = action.payload.restaurantName;
+      state.restaurantAreaName = action.payload.restaurantAreaName;
+    },
   },
 });
 
-export const { addItem, removeItem, clearCart } = cartSlice.actions;
+export const { addItem, removeItem, clearCart, addResturantDetails } =
+  cartSlice.actions;
 export default cartSlice.reducer;

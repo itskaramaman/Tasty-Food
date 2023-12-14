@@ -6,7 +6,7 @@ import useLocationResults from "../utils/useLocationResults";
 
 const Location = () => {
   const messages = ["Hungry?", "Friday Night🍻", "No mood to cook🍕"];
-  const [title, setTitle] = useState("Hungary?");
+  const [title, setTitle] = useState("Hungry?");
   const [input, setInput] = useState("");
   const results = useLocationResults(input);
 

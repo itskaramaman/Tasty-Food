@@ -6,10 +6,11 @@ import useRestaurantList from "../utils/useRestaurantList";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import Location from "./Location";
 import { useSelector } from "react-redux";
+import MainBanner from "./MainBanner";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
-  const { restaurantList } = useRestaurantList();
+  const { restaurantList, bannerItems } = useRestaurantList();
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const address = useSelector((store) => store.app.address);
 
@@ -32,7 +33,7 @@ const Body = () => {
   return !filteredRestaurant || filteredRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="absolute top-5 mb-5 z-10">
+    <div className="absolute top-20 mb-5 z-10">
       <div className="p-5">
         <div className="search">
           <input
@@ -59,6 +60,7 @@ const Body = () => {
           </button>
         </div>
       </div>
+      {/* <MainBanner bannerItems={bannerItems} /> */}
       <div className="w-10/12 mx-auto flex flex-wrap gap-12 justify-center">
         {filteredRestaurant.map((restaurant) => (
           <Link

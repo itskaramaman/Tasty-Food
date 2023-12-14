@@ -1,6 +1,8 @@
 import RestaurantCategoryItem from "./RestaurantCategoryItem";
 
 const RestaurantCategory = ({
+  name,
+  areaName,
   index,
   category,
   setShowCategoryIndex,
@@ -33,7 +35,12 @@ const RestaurantCategory = ({
       {showCategoryIndex === index && (
         <ul>
           {itemCards.map((item) => (
-            <RestaurantCategoryItem key={item.info?.id} item={item} />
+            <RestaurantCategoryItem
+              key={item.info?.id}
+              item={item}
+              name={name}
+              areaName={areaName}
+            />
           ))}
         </ul>
       )}

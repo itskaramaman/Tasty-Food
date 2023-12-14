@@ -13,6 +13,8 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
+  console.log(resInfo);
+
   const {
     name,
     cuisines,
@@ -35,10 +37,10 @@ const RestaurantMenu = () => {
       <div className="flex justify-between border-b-2 pb-5">
         <div>
           <h1 className="text-3xl font-semibold">{name}</h1>
-          <h3 className="italic text-xs text-gray-700">
+          <h3 className="italic text-xs text-gray-500">
             {cuisines.join(", ")}
           </h3>
-          <p className="text-xs text-gray-700">
+          <p className="text-xs text-gray-500">
             {areaName}, {city}
           </p>
         </div>
@@ -60,6 +62,8 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category.card?.card?.title}
           index={index}
+          name={name}
+          areaName={areaName}
           category={category}
           setShowCategoryIndex={setShowCategoryIndex}
           showCategoryIndex={showCategoryIndex}
