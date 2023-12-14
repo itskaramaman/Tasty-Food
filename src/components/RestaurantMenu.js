@@ -13,15 +13,8 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
-  const {
-    name,
-    cuisines,
-    costForTwoMessage,
-    areaName,
-    city,
-    isOpen,
-    totalRatingsString,
-  } = resInfo?.cards[0]?.card?.card?.info;
+  const { name, cuisines, areaName, city, isOpen, totalRatingsString } =
+    resInfo?.cards[0]?.card?.card?.info;
 
   const categories =
     resInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
