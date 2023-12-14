@@ -2,7 +2,13 @@ import { MENU_ITEM_IMAGE_CDN } from "../utils/constants";
 import IncrementDecrement from "./styledComponents/IncrementDecrement";
 import { useSelector } from "react-redux";
 
-const RestaurantCategoryItem = ({ item, count = 0 }) => {
+const RestaurantCategoryItem = ({
+  restuarantId,
+  name,
+  areaName,
+  item,
+  count = 0,
+}) => {
   const cartItems = useSelector((store) => store.cart.items);
 
   const getCountFromCart = () => {
@@ -25,7 +31,10 @@ const RestaurantCategoryItem = ({ item, count = 0 }) => {
 
         <h2 className="font-semibold my-1">{item.card?.info?.name}</h2>
         <p className="text-sm text-gray-700 my-1">
-          ₹{item.card?.info?.defaultPrice / 100}
+          ₹
+          {item.card?.info?.defaultPrice
+            ? item.card?.info?.defaultPrice / 100
+            : item.card?.info?.price / 100}
         </p>
         <p className="text-sm text-gray-500 italic">
           {item.card?.info?.description}
@@ -37,7 +46,13 @@ const RestaurantCategoryItem = ({ item, count = 0 }) => {
           src={MENU_ITEM_IMAGE_CDN + item.card?.info?.imageId}
         />
         <div className="flex items-center gap-1">
-          <IncrementDecrement item={item} count={count} />
+          <IncrementDecrement
+            name={name}
+            areaName={areaName}
+            item={item}
+            count={count}
+            restuarantId={restuarantId}
+          />
         </div>
       </div>
     </div>

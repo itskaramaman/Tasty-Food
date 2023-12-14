@@ -12,11 +12,15 @@ const Cart = () => {
   let cartTotal = 0;
   cartItems.map((item) => {
     cartTotal =
-      cartTotal + (item.count * item.item.card.info.defaultPrice) / 100;
+      cartTotal +
+      (item.count * item.item.card.info.defaultPrice
+        ? item.item.card.info.defaultPrice
+        : item.item.card.info.price) /
+        100;
   });
 
   return (
-    <div className="w-10/12 absolute top-20 left-0 right-0 mx-auto p-5">
+    <div className="w-10/12 absolute top-20 left-0 right-0 mx-auto p-5 z-10">
       <section className="flex gap-5">
         <CartUserDetails />
         <CartOrderDetails

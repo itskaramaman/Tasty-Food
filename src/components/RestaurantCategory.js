@@ -1,6 +1,7 @@
 import RestaurantCategoryItem from "./RestaurantCategoryItem";
 
 const RestaurantCategory = ({
+  restuarantId,
   name,
   areaName,
   index,
@@ -40,6 +41,7 @@ const RestaurantCategory = ({
               item={item}
               name={name}
               areaName={areaName}
+              restuarantId={restuarantId}
             />
           ))}
         </ul>

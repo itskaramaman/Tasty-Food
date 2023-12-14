@@ -18,3 +18,5 @@ export const LOCATION_LONG_LAT_URL =
 
 export const MENU_ITEM_IMAGE_CDN =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+// https://www.swiggy.com/dapi/restaurants/search/suggest?lat=28.7040592&lng=77.10249019999999&str=kf&trackingId=undefined

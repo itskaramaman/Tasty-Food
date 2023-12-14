@@ -13,8 +13,17 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
-  const { name, cuisines, areaName, city, isOpen, totalRatingsString } =
-    resInfo?.cards[0]?.card?.card?.info;
+  const {
+    id: restuarantId,
+    name,
+    cuisines,
+    areaName,
+    city,
+    isOpen,
+    totalRatingsString,
+  } = resInfo?.cards[0]?.card?.card?.info;
+
+  console.log(restuarantId);
 
   const categories =
     resInfo?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -58,6 +67,7 @@ const RestaurantMenu = () => {
           category={category}
           setShowCategoryIndex={setShowCategoryIndex}
           showCategoryIndex={showCategoryIndex}
+          restuarantId={restuarantId}
         />
       ))}
     </div>

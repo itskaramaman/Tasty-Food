@@ -1,12 +1,33 @@
 import { useState } from "react";
-import { addItem, removeItem } from "../../utils/cartSlice";
-import { useDispatch } from "react-redux";
+import {
+  addItem,
+  addResturantDetails,
+  isCartEmpty,
+  removeItem,
+} from "../../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const IncrementDecrement = ({ item, count: countGiven }) => {
+const IncrementDecrement = ({
+  restuarantId,
+  name,
+  areaName,
+  item,
+  count: countGiven,
+}) => {
   const [count, setCount] = useState(countGiven);
   const dispatch = useDispatch();
+  const { items: cartItems } = useSelector((store) => store.cart);
 
   const handleIncrement = () => {
+    if (cartItems.length === 0) {
+      dispatch(
+        addResturantDetails({
+          restaurantName: name,
+          restaurantAreaName: areaName,
+          restuarantId: restuarantId,
+        })
+      );
+    }
     dispatch(addItem({ item, count: count + 1 }));
     setCount((prev) => prev + 1);
   };

@@ -28,7 +28,7 @@ const CartOrderDetails = ({
             </button>
           </section>
           <h2 className="font-semibold">{restaurantName}</h2>
-          <h3 className="text-xs text-gray-500">{restaurantAreaName}</h3>
+          <h3 className="text-xs text-gray-500 mb-2">{restaurantAreaName}</h3>
           {cartItems.map((item) => (
             <CartItems key={item.item.card.info.id} item={item} />
           ))}
