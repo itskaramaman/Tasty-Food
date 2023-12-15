@@ -59,7 +59,7 @@ export const withDiscountInfo = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
-        <label className="absolute bg-orange-600 text-sm text-white rounded-md m-2 p-1">
+        <label className="absolute bg-blue-400 text-sm text-white rounded-md m-2 p-1">
           {props.resData?.info?.aggregatedDiscountInfoV3?.header}{" "}
           {props.resData?.info?.aggregatedDiscountInfoV3?.subHeader}
         </label>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   addItem,
   addResturantDetails,
-  isCartEmpty,
   removeItem,
 } from "../../utils/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,11 +11,14 @@ const IncrementDecrement = ({
   name,
   areaName,
   item,
+  setShowChangeRestaurantModal,
   count: countGiven,
 }) => {
   const [count, setCount] = useState(countGiven);
   const dispatch = useDispatch();
-  const { items: cartItems } = useSelector((store) => store.cart);
+  const { restuarantId: storeRestuarantId, items: cartItems } = useSelector(
+    (store) => store.cart
+  );
 
   const handleIncrement = () => {
     if (cartItems.length === 0) {
@@ -28,8 +30,13 @@ const IncrementDecrement = ({
         })
       );
     }
-    dispatch(addItem({ item, count: count + 1 }));
-    setCount((prev) => prev + 1);
+    if (storeRestuarantId && storeRestuarantId !== restuarantId) {
+      setShowChangeRestaurantModal(true);
+    }
+    if (!storeRestuarantId || storeRestuarantId === restuarantId) {
+      dispatch(addItem({ item, count: count + 1 }));
+      setCount((prev) => prev + 1);
+    }
   };
 
   const handleDecrement = () => {
@@ -41,14 +48,14 @@ const IncrementDecrement = ({
     <div className="flex items-center justify-center">
       <button
         onClick={() => handleDecrement()}
-        className="bg-orange-400 hover:bg-orange-500 text-white w-5 rounded-l"
+        className="bg-blue-400 hover:bg-blue-500 text-white w-5 rounded-l"
       >
         <span className="my-auto">-</span>
       </button>
       <span className="bg-gray-200 w-5 text-center">{count}</span>
       <button
         onClick={() => handleIncrement()}
-        className="bg-orange-400 hover:bg-orange-500 text-white w-5 rounded-r"
+        className="bg-blue-400 hover:bg-blue-500 text-white w-5 rounded-r"
       >
         +
       </button>

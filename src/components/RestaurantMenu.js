@@ -3,11 +3,16 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import { useState } from "react";
+import ChangeRestaurantModal from "./ChangeRestaurantModal";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
   const resInfo = useRestaurantMenu(resId);
   const [showCategoryIndex, setShowCategoryIndex] = useState(0);
+  const [showChangeRestaurantModal, setShowChangeRestaurantModal] =
+    useState(false);
+
+  console.log(showChangeRestaurantModal);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -33,7 +38,14 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="absolute top-5 w-10/12 left-0 right-0 mx-auto p-20">
+    <div className="absolute top-5 w-10/12 left-0 right-0 mx-auto p-20 z-10">
+      {/* <div className="h-screen w-full absolute">
+        {showChangeRestaurantModal && (
+          <ChangeRestaurantModal
+            setShowChangeRestaurantModal={setShowChangeRestaurantModal}
+          />
+        )}
+      </div> */}
       <div className="flex justify-between border-b-2 pb-5">
         <div>
           <h1 className="text-3xl font-semibold">{name}</h1>
@@ -68,6 +80,7 @@ const RestaurantMenu = () => {
           setShowCategoryIndex={setShowCategoryIndex}
           showCategoryIndex={showCategoryIndex}
           restuarantId={restuarantId}
+          setShowChangeRestaurantModal={setShowChangeRestaurantModal}
         />
       ))}
     </div>

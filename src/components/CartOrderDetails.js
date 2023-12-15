@@ -22,7 +22,7 @@ const CartOrderDetails = ({
             <h1 className="font-semibold">Your Cart</h1>
             <button
               onClick={handleClearCart}
-              className="border rounded-md border-orange-500 p-1 text-orange-500 hover:bg-orange-500 hover:text-white"
+              className="border rounded-md border-blue-500 p-1 text-blue-500 hover:bg-blue-500 hover:text-white"
             >
               Clear Cart
             </button>

@@ -8,6 +8,7 @@ const RestaurantCategory = ({
   category,
   setShowCategoryIndex,
   showCategoryIndex,
+  setShowChangeRestaurantModal,
 }) => {
   const { itemCards } = category.card?.card;
   const { title } = category.card?.card;
@@ -42,6 +43,7 @@ const RestaurantCategory = ({
               name={name}
               areaName={areaName}
               restuarantId={restuarantId}
+              setShowChangeRestaurantModal={setShowChangeRestaurantModal}
             />
           ))}
         </ul>

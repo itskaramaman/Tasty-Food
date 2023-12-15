@@ -6,6 +6,7 @@ const RestaurantCategoryItem = ({
   restuarantId,
   name,
   areaName,
+  setShowChangeRestaurantModal,
   item,
   count = 0,
 }) => {
@@ -52,6 +53,7 @@ const RestaurantCategoryItem = ({
             item={item}
             count={count}
             restuarantId={restuarantId}
+            setShowChangeRestaurantModal={setShowChangeRestaurantModal}
           />
         </div>
       </div>
