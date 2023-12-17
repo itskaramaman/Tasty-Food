@@ -2,7 +2,9 @@
 
 Welcome to the Food Ordering Website frontend project! This React-based application lets users explore restaurants, view live API data from Swiggy, and order food seamlessly. The project incorporates various features to enhance user experience and performance.
 
-It uses and Indian API, so for location and prices it shows Indian info.
+It uses and Indian API, so for location and prices it shows Indian info.'
+
+**Live Link:** https://tasty-eats.netlify.app/
 
 ## Features
 
