@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { clearCart } from "../utils/cartSlice";
+import { clearCart } from "../utils/redux/cartSlice";
 
 const ChangeRestaurantModal = ({ setShowChangeRestaurantModal }) => {
   const dispatch = useDispatch();

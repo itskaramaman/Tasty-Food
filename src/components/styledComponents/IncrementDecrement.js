@@ -3,7 +3,7 @@ import {
   addItem,
   addResturantDetails,
   removeItem,
-} from "../../utils/cartSlice";
+} from "../../utils/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const IncrementDecrement = ({
@@ -30,13 +30,9 @@ const IncrementDecrement = ({
         })
       );
     }
-    if (storeRestuarantId && storeRestuarantId !== restuarantId) {
-      setShowChangeRestaurantModal(true);
-    }
-    if (!storeRestuarantId || storeRestuarantId === restuarantId) {
-      dispatch(addItem({ item, count: count + 1 }));
-      setCount((prev) => prev + 1);
-    }
+
+    dispatch(addItem({ item, count: count + 1 }));
+    setCount((prev) => prev + 1);
   };
 
   const handleDecrement = () => {

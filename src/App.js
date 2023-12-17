@@ -6,7 +6,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { Provider } from "react-redux";
-import store from "./utils/store";
+import store from "./utils/redux/store";
 import Cart from "./components/Cart";
 import Location from "./components/Location";
 import Main from "./components/Main";

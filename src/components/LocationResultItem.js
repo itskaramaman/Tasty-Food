@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { LOCATION_LONG_LAT_URL } from "../utils/constants";
-import { closeAddressSidebar, setAddress } from "../utils/appSlice";
+import { closeAddressSidebar, setAddress } from "../utils/redux/appSlice";
 import { useNavigate } from "react-router-dom";
 
 const LocationResultItem = ({ result }) => {

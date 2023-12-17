@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { closeAddressSidebar } from "../utils/appSlice";
+import { closeAddressSidebar } from "../utils/redux/appSlice";
 import { useState } from "react";
 import useLocationResults from "../utils/useLocationResults";
 import LocationResultItem from "./LocationResultItem";
